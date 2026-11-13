@@ -1,0 +1,342 @@
+:root {
+  --ink: #142129;
+  --muted: #72838b;
+  --line: rgba(149, 179, 182, 0.24);
+  --surface: #f8fbfa;
+  --page: #0b1f2a;
+  --primary: #0f766e;
+  --primary-strong: #115e59;
+  --accent: #2f80ed;
+  --ok: #11956f;
+  --warn: #c88719;
+  --bad: #c94b45;
+  --teal-soft: #e7f6f3;
+  --blue-soft: #edf6fb;
+  --gold-soft: #fff5df;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 8%, rgba(47, 128, 237, 0.22), transparent 280px),
+    radial-gradient(circle at 86% 4%, rgba(15, 118, 110, 0.34), transparent 330px),
+    linear-gradient(135deg, #0b1f2a 0%, #102f37 46%, #182c36 100%);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.navbar {
+  background: rgba(8, 24, 34, 0.82);
+  border-bottom: 1px solid rgba(190, 220, 222, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.navbar .navbar-brand {
+  color: #f4fbfb;
+}
+
+.navbar small {
+  color: #a9c1c6 !important;
+}
+
+.overview {
+  align-items: stretch;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+
+.condition-copy,
+.health-card,
+.metric,
+.panel {
+  background: rgba(248, 251, 250, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.22);
+}
+
+.condition-copy {
+  background:
+    linear-gradient(135deg, rgba(230, 246, 243, 0.96), rgba(248, 251, 250, 0.95) 48%, rgba(255, 245, 223, 0.72)),
+    #f8fbfa;
+  min-height: 220px;
+  padding: 28px;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.7rem);
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.condition-text {
+  color: #48556a;
+  font-size: 1.04rem;
+  line-height: 1.55;
+  margin: 16px 0 18px;
+  max-width: 880px;
+}
+
+.quick-actions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quick-actions span {
+  background: rgba(245, 250, 249, 0.9);
+  border: 1px solid #d5e8e5;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  color: #27434b;
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  padding: 10px 12px;
+}
+
+.health-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22px;
+  text-align: center;
+}
+
+.health-card small {
+  color: var(--muted);
+}
+
+.health-ring {
+  align-items: center;
+  aspect-ratio: 1;
+  background: conic-gradient(var(--ok) 0deg, var(--ok) 260deg, #d8e2ea 260deg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  position: relative;
+  width: 142px;
+}
+
+.health-ring::after {
+  background: #f8fbfa;
+  border-radius: 50%;
+  content: "";
+  inset: 15px;
+  position: absolute;
+}
+
+.health-ring span {
+  font-size: 1.9rem;
+  font-weight: 850;
+  position: relative;
+  z-index: 1;
+}
+
+.priority-badge,
+.live-pill {
+  border-radius: 999px;
+  color: white;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 8px 11px;
+  text-transform: uppercase;
+}
+
+.priority-badge.routine,
+.live-pill {
+  background: var(--ok);
+}
+
+.priority-badge.preventive {
+  background: var(--warn);
+}
+
+.priority-badge.immediate {
+  background: var(--bad);
+}
+
+.metric-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.metric {
+  background: linear-gradient(180deg, rgba(248, 251, 250, 0.96), rgba(235, 245, 243, 0.96));
+  min-height: 118px;
+  padding: 18px;
+  position: relative;
+}
+
+.metric::before {
+  background: var(--primary);
+  border-radius: 8px 8px 0 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.metric span,
+.panel-head span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.82rem;
+}
+
+.metric strong {
+  display: block;
+  font-size: 1.55rem;
+  font-weight: 850;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.metric small {
+  color: var(--muted);
+}
+
+.panel {
+  background: rgba(248, 251, 250, 0.96);
+  padding: 20px;
+}
+
+.panel canvas {
+  max-height: 320px;
+}
+
+.panel-head {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 14px;
+}
+
+.panel h2 {
+  font-size: 1.02rem;
+  font-weight: 800;
+  margin: 0 0 2px;
+}
+
+.upload-box {
+  background: #f7fbfa;
+  border: 1px dashed #9fcac5;
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.result-list {
+  display: grid;
+  gap: 10px;
+}
+
+.result-list div {
+  align-items: center;
+  border-bottom: 1px solid #edf1f6;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+}
+
+.result-list dt {
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.result-list dd {
+  font-weight: 800;
+  margin: 0;
+  text-align: right;
+}
+
+.badge-status {
+  border-radius: 999px;
+  color: white;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  min-width: 78px;
+  padding: 5px 9px;
+  text-align: center;
+}
+
+.safe { background: var(--ok); }
+.warning { background: var(--warn); }
+.unsafe { background: var(--bad); }
+
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-strong);
+  --bs-btn-hover-border-color: var(--primary-strong);
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: #35515a;
+  --bs-btn-border-color: #b9cccf;
+  --bs-btn-hover-bg: #eaf4f1;
+  --bs-btn-hover-border-color: #9dbdc0;
+  --bs-btn-hover-color: #18333a;
+}
+
+.table {
+  --bs-table-bg: transparent;
+}
+
+.table thead th {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .overview {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .condition-copy,
+  .health-card,
+  .panel {
+    padding: 16px;
+  }
+
+  .panel-head {
+    flex-direction: column;
+  }
+}
